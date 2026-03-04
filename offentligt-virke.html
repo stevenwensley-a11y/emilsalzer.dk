@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='18' fill='%23C62828'%3ES%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,7 +33,7 @@
   </div>
 
   <main class="container">
-    <section class="content" style="margin-bottom: 3rem;">
+    <section class="content" style="margin-bottom: 3rem;" data-reveal>
       <p style="text-align: center; color: #666; font-style: italic;">Fra debut til landsdækkende påsyn—her følger Emils vej gennem dansk debat og kulturliv.</p>
     </section>
 
@@ -65,7 +65,7 @@
     </section>
 
     <section style="margin-bottom: 4rem;">
-      <h2 style="text-align: center; margin-bottom: 2rem;">Emil i medierne</h2>
+      <h2 style="text-align: center; margin-bottom: 2rem;" data-reveal>Emil i medierne</h2>
       <div class="media-grid">
         <div class="media-card">
           <h3 class="media-source">Berlingske</h3>
@@ -110,9 +110,11 @@
     </section>
 
     <section class="section section-cta" style="padding: 3rem 2rem; text-align: center;">
-      <h2>Vil du involvere Emil?</h2>
-      <p style="margin: 1rem 0 2rem 0; font-size: 1.1rem;">Emil er tilgængelig for debat, foredrag, interviews og samarbejder. Kontakt ham direkte.</p>
-      <a href="kontakt.html" class="btn btn-primary">Kontakt Emil om involvering</a>
+      <h2 data-reveal>Vil du involvere Emil?</h2>
+      <p style="margin: 1rem 0 2rem 0; font-size: 1.1rem;" data-reveal>Emil er tilgængelig for debat, foredrag, interviews og samarbejder. Kontakt ham direkte.</p>
+      <div data-reveal>
+        <a href="kontakt.html" class="btn btn-primary">Kontakt Emil om involvering</a>
+      </div>
     </section>
   </main>
 
@@ -148,5 +150,37 @@
       </div>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+  <script>
+  (function() {
+    'use strict';
+    var lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+    gsap.registerPlugin(ScrollTrigger);
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+
+    var revealEls = document.querySelectorAll('[data-reveal], .timeline-item, .media-card');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var parent = entry.target.parentElement;
+          var siblings = parent ? parent.querySelectorAll('.timeline-item, .media-card') : [];
+          if (siblings.length > 1) {
+            var idx = Array.prototype.indexOf.call(siblings, entry.target);
+            if (idx >= 0) {
+              setTimeout(function() { entry.target.classList.add('visible'); }, idx * 100);
+            } else { entry.target.classList.add('visible'); }
+          } else { entry.target.classList.add('visible'); }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+    revealEls.forEach(function(el) { observer.observe(el); });
+  })();
+  </script>
 </body>
 </html>
