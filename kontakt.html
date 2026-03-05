@@ -2,6 +2,7 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8">
+  <meta name="view-transition" content="same-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt — Emil Salzer</title>
   <meta name="description" content="Kontakt Emil Salzer for booking af foredrag, interviews, samarbejder eller medieanmodninger.">
@@ -34,7 +35,7 @@
   </head>
 <body>
   <nav>
-    <a href="index.html" class="logo">SALZER</a>
+    <a href="index.html" class="logo has-svg"><span class="logo-text">SALZER</span><svg class="logo-svg" viewBox="0 0 130 30" width="130" height="30" xmlns="http://www.w3.org/2000/svg" aria-label="SALZER"><text y="24">SALZER</text></svg></a>
     <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -86,7 +87,7 @@
           <textarea id="besked" name="besked" rows="6" required placeholder="Fortæl Emil hvad du ønsker..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Send besked</button>
+        <button type="submit" class="btn btn-primary gradient-animated" style="width: 100%;">Send besked</button>
       </form>
     </section>
 
@@ -125,7 +126,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="footer-logo">SALZER</div>
+          <div class="footer-logo has-svg"><span class="logo-text">SALZER</span><svg class="logo-svg" viewBox="0 0 130 30" width="130" height="30" xmlns="http://www.w3.org/2000/svg" aria-label="SALZER"><text y="24">SALZER</text></svg></div>
           <p class="footer-tagline">Digter &middot; Debatt&oslash;r &middot; Foredragsholder</p>
         </div>
         <div class="footer-links">
@@ -189,6 +190,57 @@
       padding-right: 2.5rem;
       cursor: pointer;
     }
+  
+    /* FE6: View Transitions */
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root) { animation: vt-fade-out 0.25s ease; }
+    ::view-transition-new(root) { animation: vt-fade-in 0.25s ease; }
+    @keyframes vt-fade-out { to { opacity: 0; } }
+    @keyframes vt-fade-in { from { opacity: 0; } }
+
+    /* FE3: CSS @property gradient animation */
+    @property --grad-angle {
+      syntax: '<angle>';
+      initial-value: 135deg;
+      inherits: false;
+    }
+    @keyframes gradient-shift {
+      0%   { --grad-angle: 135deg; }
+      50%  { --grad-angle: 225deg; }
+      100% { --grad-angle: 135deg; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .btn-primary.gradient-animated {
+        animation: gradient-shift 6s ease-in-out infinite;
+        background: linear-gradient(var(--grad-angle), var(--accent), #8B0000, #E53935);
+        background-size: 200% 200%;
+      }
+    }
+
+    /* FE4: SVG logo line-drawing animation */
+    .logo-svg { display: none; }
+    .logo.has-svg .logo-text { display: none; }
+    .logo.has-svg .logo-svg { display: block; }
+    .logo-svg text {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.15em;
+      fill: var(--text);
+      stroke: var(--text);
+      stroke-width: 0.8;
+      fill-opacity: 0;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .logo-svg text { animation: logo-draw 2s ease forwards, logo-fill 0.6s ease 1.8s forwards; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-svg text { stroke-dashoffset: 0; fill-opacity: 1; stroke-width: 0; }
+    }
+    @keyframes logo-draw { to { stroke-dashoffset: 0; } }
+    @keyframes logo-fill { to { fill-opacity: 1; stroke-width: 0; } }
+
   </style>
 </body>
 </html>

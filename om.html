@@ -2,6 +2,7 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8">
+  <meta name="view-transition" content="same-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Om Emil — Emil Salzer</title>
   <meta name="description" content="Lær Emil Salzer at kende—dansk digter, debatt&oslash;r og foredragsholder fra Randers. Skaberen af begrebet Skamhumanisme.">
@@ -9,6 +10,58 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* FE6: View Transitions */
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root) { animation: vt-fade-out 0.25s ease; }
+    ::view-transition-new(root) { animation: vt-fade-in 0.25s ease; }
+    @keyframes vt-fade-out { to { opacity: 0; } }
+    @keyframes vt-fade-in { from { opacity: 0; } }
+
+    /* FE3: CSS @property gradient animation */
+    @property --grad-angle {
+      syntax: '<angle>';
+      initial-value: 135deg;
+      inherits: false;
+    }
+    @keyframes gradient-shift {
+      0%   { --grad-angle: 135deg; }
+      50%  { --grad-angle: 225deg; }
+      100% { --grad-angle: 135deg; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .btn-primary.gradient-animated {
+        animation: gradient-shift 6s ease-in-out infinite;
+        background: linear-gradient(var(--grad-angle), var(--accent), #8B0000, #E53935);
+        background-size: 200% 200%;
+      }
+    }
+
+    /* FE4: SVG logo line-drawing animation */
+    .logo-svg { display: none; }
+    .logo.has-svg .logo-text { display: none; }
+    .logo.has-svg .logo-svg { display: block; }
+    .logo-svg text {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.15em;
+      fill: var(--text);
+      stroke: var(--text);
+      stroke-width: 0.8;
+      fill-opacity: 0;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .logo-svg text { animation: logo-draw 2s ease forwards, logo-fill 0.6s ease 1.8s forwards; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-svg text { stroke-dashoffset: 0; fill-opacity: 1; stroke-width: 0; }
+    }
+    @keyframes logo-draw { to { stroke-dashoffset: 0; } }
+    @keyframes logo-fill { to { fill-opacity: 1; stroke-width: 0; } }
+
+  </style>
   <link rel="stylesheet" href="style.css">
     <link rel="canonical" href="https://emilsalzer.dk/om.html">
     <meta property="og:title" content="Om Emil Salzer">
@@ -34,7 +87,7 @@
   </head>
 <body>
   <nav>
-    <a href="index.html" class="logo">SALZER</a>
+    <a href="index.html" class="logo has-svg"><span class="logo-text">SALZER</span><svg class="logo-svg" viewBox="0 0 130 30" width="130" height="30" xmlns="http://www.w3.org/2000/svg" aria-label="SALZER"><text y="24">SALZER</text></svg></a>
     <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -138,7 +191,7 @@
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" data-reveal>
         <a href="https://www.instagram.com/emil_salzer/" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
         <a href="https://www.youtube.com/@emilsalzer" target="_blank" rel="noopener" class="btn btn-outline">YouTube</a>
-        <a href="kontakt.html" class="btn btn-primary">Kontakt Emil</a>
+        <a href="kontakt.html" class="btn btn-primary gradient-animated">Kontakt Emil</a>
       </div>
     </section>
   </main>
@@ -147,7 +200,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="footer-logo">SALZER</div>
+          <div class="footer-logo has-svg"><span class="logo-text">SALZER</span><svg class="logo-svg" viewBox="0 0 130 30" width="130" height="30" xmlns="http://www.w3.org/2000/svg" aria-label="SALZER"><text y="24">SALZER</text></svg></div>
           <p class="footer-tagline">Digter &middot; Debatt&oslash;r &middot; Foredragsholder</p>
         </div>
         <div class="footer-links">
