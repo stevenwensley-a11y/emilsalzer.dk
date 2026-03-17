@@ -17,7 +17,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Times New Roman', Times, Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
 
-        /* === NAV (Checkpoint 1) === */
+        /* === NAV === */
         .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; position: sticky; top: 0; background: var(--white); z-index: 100; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); }
         .nav-logo { font-size: 32px; font-weight: 700; letter-spacing: 0.5px; color: var(--black); text-decoration: none; }
         .nav-links { display: flex; gap: 40px; list-style: none; }
@@ -27,37 +27,82 @@
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
         .hamburger span { width: 24px; height: 2px; background: var(--black); transition: 0.3s; }
 
-        /* === FOREDRAG HERO (Checkpoint 4.1) === */
-        .foredrag-hero {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 60px 48px 0;
+        /* === SPLITSCREEN HERO === */
+        .split-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 85vh;
         }
-        .foredrag-hero h1 {
-            font-size: clamp(48px, 6vw, 72px);
+        .split-hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 64px 80px 48px;
+            max-width: 640px;
+            margin-left: auto;
+        }
+        .split-hero-text h1 {
+            font-size: clamp(42px, 5vw, 64px);
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1.08;
             margin-bottom: 40px;
         }
-        .foredrag-hero p {
+        .split-hero-text p {
             font-size: 16px;
             line-height: 1.8;
             margin-bottom: 20px;
         }
-        .foredrag-hero .bt-quote {
+        .split-hero-text .bt-quote {
             font-style: italic;
-            margin: 24px 0;
+            margin: 8px 0 20px;
+            padding-left: 20px;
+            border-left: 2px solid var(--black);
+        }
+        .split-hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+        .split-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* === BOOKING BOX (Checkpoint 4.2) === */
-        .booking-box {
-            max-width: 560px;
-            margin: 60px auto;
-            padding: 48px;
+        /* === FULL-WIDTH IMAGES === */
+        .full-image {
+            width: 100%;
+            line-height: 0;
+        }
+        .full-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === HERO IMAGE (fixed height, focus on subject) === */
+        .full-image.hero-image {
+            height: 70vh;
+            overflow: hidden;
+        }
+        .full-image.hero-image img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        /* === BOOKING SECTION === */
+        .booking-section {
+            width: 100%;
+            margin: 0;
+            padding: 80px 48px;
             background: var(--white);
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10), 0 -4px 20px rgba(0, 0, 0, 0.04);
         }
-        .booking-box h2 {
+        .booking-inner {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .booking-section h2 {
             font-size: clamp(28px, 3.5vw, 36px);
             font-weight: 700;
             margin-bottom: 32px;
@@ -121,20 +166,7 @@
             margin-top: 20px;
         }
 
-        /* === FULLSCREEN IMAGE (Checkpoint 4.3) === */
-        .fullscreen-image {
-            position: relative;
-            width: 100%;
-            height: 80vh;
-            overflow: hidden;
-        }
-        .fullscreen-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* === CREDENTIAL BOXES (Checkpoint 4.4) === */
+        /* === CREDENTIAL BOXES === */
         .credentials {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -146,6 +178,12 @@
         .credential-box.grey-bg {
             background: var(--light-grey);
         }
+        .credential-box .quote-marks {
+            font-size: 48px;
+            line-height: 1;
+            color: var(--grey);
+            margin-bottom: 12px;
+        }
         .credential-box blockquote {
             font-style: italic;
             font-size: 16px;
@@ -153,20 +191,13 @@
             color: var(--black);
             margin-bottom: 16px;
         }
-        .credential-box .quote-marks {
-            font-size: 48px;
-            line-height: 1;
-            color: var(--grey);
-            margin-bottom: 12px;
-            font-style: normal;
-        }
         .credential-box .attribution {
             font-size: 14px;
             font-weight: 700;
             color: var(--black);
         }
 
-        /* === FOOTER (Checkpoint 2) === */
+        /* === FOOTER === */
         .footer { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 40px; padding: 60px 48px; font-size: 14px; }
         .footer-col h4 { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
         .footer-col p, .footer-col a { color: var(--black); text-decoration: none; line-height: 1.8; display: block; }
@@ -179,15 +210,30 @@
         [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
         [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 
+        /* === RESPONSIVE === */
         @media (max-width: 900px) {
             .nav { padding: 14px 24px; }
             .nav-links { display: none; }
             .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); }
             .hamburger { display: flex; }
-            .foredrag-hero { padding: 40px 24px 0; }
-            .booking-box { margin: 40px 24px; padding: 32px 24px; }
+
+            .split-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            .split-hero-text {
+                padding: 40px 24px;
+                max-width: 100%;
+                order: 1;
+            }
+            .split-hero-image {
+                order: 2;
+                height: 50vh;
+            }
+
+            .booking-section { padding: 40px 24px; }
             .form-row { grid-template-columns: 1fr; }
-            .fullscreen-image { height: 50vh; }
+            .full-image.hero-image { height: 50vh; }
             .credentials { grid-template-columns: 1fr; }
             .credential-box { padding: 40px 24px; }
             .footer { grid-template-columns: 1fr 1fr; padding: 40px 24px; }
@@ -214,84 +260,96 @@
         </ul>
     </nav>
 
-    <!-- HERO TEXT (4.1) -->
-    <section class="foredrag-hero" data-reveal>
-        <h1>Foredraget:<br>Ytringsfrihed<br>i kunst.</h1>
+    <!-- 1. SPLITSCREEN HERO -->
+    <section class="split-hero">
+        <div class="split-hero-text" data-reveal>
+            <h1>Foredraget:<br>Ytringsfrihed<br>i kunst.</h1>
 
-        <p>I Danmark g&aring;r vi rundt og tror, at vi &ndash; med undtagelse af Koranloven &ndash; m&aring; ytre os, som vi vil i kunsten. Men Emil Salzer vidner om en helt anden virkelighed.</p>
+            <p>I Danmark g&aring;r vi rundt og tror, at vi &ndash; med undtagelse af Koranloven &ndash; m&aring; ytre os, som vi vil i kunsten. Men Emil Salzer vidner om en helt anden virkelighed.</p>
 
-        <p class="bt-quote">Hver gang man udfordrer det herskende kulturelle narrativ, st&oslash;der man p&aring; en mur af censur. &ndash; Salzer i BT</p>
+            <p class="bt-quote">Hver gang man udfordrer det herskende kulturelle narrativ, st&oslash;der man p&aring; en mur af censur. &ndash; Salzer i BT</p>
 
-        <p>P&aring; foredraget &lsquo;Ytringsfrihed i kunst&rsquo; l&aelig;ser Emil Salzer op af sine digte, som har v&aelig;ret udsat for offentlig, privat og social censur, imens han fort&aelig;ller sin historie og reflekterer over vores tids dominerende kulturelle ideologier.</p>
+            <p>P&aring; foredraget &lsquo;Ytringsfrihed i kunst&rsquo; l&aelig;ser Emil Salzer op af sine digte, som har v&aelig;ret udsat for offentlig, privat og social censur, imens han fort&aelig;ller sin historie og reflekterer over vores tids dominerende kulturelle ideologier.</p>
 
-        <p>Foredraget er velegnet gymnasier, kirker, universiteter, h&oslash;jskoler, akademier, institutioner og organisationer med kulturel, kunstnerisk eller filosofisk interesse.</p>
+            <p>Foredraget er velegnet gymnasier, kirker, universiteter, h&oslash;jskoler, akademier, institutioner og organisationer med kulturel, kunstnerisk eller filosofisk interesse.</p>
+        </div>
+        <div class="split-hero-image">
+            <img src="images/foredrag-1.jpg" alt="Emil Salzer holder foredrag for publikum">
+        </div>
     </section>
 
-    <!-- BOOKING FORM BOX (4.2) -->
-    <div class="booking-box" data-reveal>
-        <h2>Book foredraget.</h2>
+    <!-- 2. BOOKING FORM -->
+    <div class="booking-section" data-reveal>
+        <div class="booking-inner">
+            <h2>Book foredraget.</h2>
 
-        <form action="https://formspree.io/f/xpqjldbp" method="POST" id="bookingForm">
-            <input type="hidden" name="_subject" value="Booking af foredrag via emilsalzer.dk">
-            <input type="hidden" name="_next" value="https://emilsalzer.dk/foredrag.html#tak">
+            <form action="https://formspree.io/f/xpqjldbp" method="POST" id="bookingForm">
+                <input type="hidden" name="_subject" value="Booking af foredrag via emilsalzer.dk">
+                <input type="hidden" name="_next" value="https://emilsalzer.dk/foredrag.html#tak">
 
-            <div class="form-group">
-                <label for="name">Navn</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="org">Organisation</label>
-                <input type="text" id="org" name="organisation">
-            </div>
-
-            <div class="form-row">
                 <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="name">Navn</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="phone">Telefon</label>
-                    <input type="tel" id="phone" name="telefon">
+                    <label for="org">Organisation</label>
+                    <input type="text" id="org" name="organisation">
                 </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="telefon">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Evt. kommentar</label>
+                    <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Send</button>
+            </form>
+
+            <div class="success-message" id="successMsg">
+                Tak for din henvendelse. Emil vender tilbage hurtigst muligt.
             </div>
-
-            <div class="form-group">
-                <label for="message">Evt. kommentar</label>
-                <textarea id="message" name="message" rows="3"></textarea>
-            </div>
-
-            <button type="submit" class="form-submit">Send</button>
-        </form>
-
-        <div class="success-message" id="successMsg">
-            Tak for din henvendelse. Emil vender tilbage hurtigst muligt.
         </div>
     </div>
 
-    <!-- FULLSCREEN CHRISTIANSBORG IMAGE (4.3) -->
-    <div class="fullscreen-image">
-        <img src="images/foredrag-1.jpg" alt="Emil Salzer holder foredrag" loading="lazy">
+    <!-- 3. FULL-WIDTH: CEPOS konference -->
+    <div class="full-image">
+        <img src="images/cepos.jpg" alt="Emil Salzer taler ved CEPOS' ytringsfrihedskonference" loading="lazy">
     </div>
 
-    <!-- CREDENTIAL BOXES (4.4) -->
+    <!-- 4. CREDENTIAL BOXES -->
     <section class="credentials" data-reveal>
         <div class="credential-box">
-            <div class="quote-marks" style="color: var(--grey);">&ldquo;</div>
-            <blockquote>Et st&aelig;rkt og medrivende foredrag med recitationer i s&aelig;rklasse. Der var b&aring;de &oslash;jeblikke med eftertanksom tavshed, g&aring;sehud og grin. Publikum var helt suget ind fra start til slut, og Salzer tog deres sp&oslash;rgsm&aring;l undervejs, hvilket gjorde det hele h&oslash;jt engageret. Jeg kan varmt anbefale det til alle, som ikke er bange for at sl&aring; &oslash;rene ud for det politisk ukorrekte.</blockquote>
+            <div class="quote-marks">&ldquo;</div>
+            <blockquote>Et st&aelig;rkt og medrivende foredrag med recitationer i s&aelig;rklasse. Der var b&aring;de &oslash;jeblikke med eftertanksom tavshed, g&aring;sehud og grin. Publikum var helt suget ind fra start til slut, og Salzer tog deres sp&oslash;rgsm&aring;l undervejs, hvilket gjorde det hele h&oslash;jt engageret. Jeg kan varmt anbefale det til alle, som ikke er bange for at sl&aring; &oslash;rerne ud for det politisk ukorrekte.</blockquote>
             <p class="attribution">&ndash; Anna R.</p>
         </div>
         <div class="credential-box grey-bg">
-            <div class="quote-marks" style="color: var(--grey);">&ldquo;</div>
+            <div class="quote-marks">&ldquo;</div>
             <blockquote>Vi danskere er bare nogle gange gode til at fort&aelig;lle hinanden, at vi er tolerante og frisindede, men n&aring;r det s&aring; skal overholdes, er vi nok snarere det modsatte. Tak til Emil for at udpensle hyklerierne med en levende alvor og humor. Det her kommer til at svide i lang tid.</blockquote>
             <p class="attribution">&ndash; Christine C.</p>
         </div>
         <div class="credential-box">
-            <div class="quote-marks" style="color: var(--grey);">&ldquo;</div>
+            <div class="quote-marks">&ldquo;</div>
             <blockquote>Umuligt ikke at blive provokeret klogere. Emil er et unikum.</blockquote>
             <p class="attribution">&ndash; Michael A.</p>
         </div>
     </section>
+
+    <!-- 5. FULL-WIDTH: Emil l&aelig;ser op -->
+    <div class="full-image hero-image">
+        <img src="images/foredrag-3.jpg" alt="Emil Salzer l&aelig;ser op fra sin bog" loading="lazy">
+    </div>
 
     <footer class="footer">
         <div class="footer-col">
@@ -319,7 +377,6 @@
     </footer>
 
     <script>
-    // Show success message if redirected back with #tak
     if (window.location.hash === '#tak') {
         document.getElementById('bookingForm').style.display = 'none';
         document.getElementById('successMsg').style.display = 'block';

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B&oslash;ger &mdash; Emil Salzer</title>
-    <meta name="description" content="Emil Salzers b&oslash;ger og digtsamlinger. Kommer snart.">
+    <meta name="description" content="Emil Salzers b&oslash;ger og digtsamlinger. Kaosviol, Syv taler, Sj&aelig;lecancer, Bukkede nakker, Uvaccineret og Tre refleksioner.">
     <meta name="view-transition" content="same-origin">
     <link rel="canonical" href="https://emilsalzer.dk/boeger.html">
     <meta property="og:title" content="B&oslash;ger &mdash; Emil Salzer">
@@ -17,7 +17,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Times New Roman', Times, Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
 
-        /* === NAV (Checkpoint 1) === */
+        /* === NAV === */
         .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; position: sticky; top: 0; background: var(--white); z-index: 100; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); }
         .nav-logo { font-size: 32px; font-weight: 700; letter-spacing: 0.5px; color: var(--black); text-decoration: none; }
         .nav-links { display: flex; gap: 40px; list-style: none; }
@@ -27,42 +27,57 @@
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
         .hamburger span { width: 24px; height: 2px; background: var(--black); transition: 0.3s; }
 
-        .placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 60vh;
+        /* === PAGE TITLE === */
+        .page-title {
             text-align: center;
-            padding: 80px 48px;
+            padding: 60px 48px 20px;
         }
-        .placeholder h1 {
+        .page-title h1 {
             font-size: clamp(48px, 6vw, 72px);
             font-weight: 700;
-            margin-bottom: 24px;
             line-height: 1.1;
         }
-        .placeholder p {
-            font-size: 17px;
-            color: var(--grey);
-            max-width: 420px;
-            line-height: 1.7;
-        }
-        .placeholder .cta-link {
-            display: inline-block;
-            margin-top: 32px;
-            padding: 14px 40px;
-            background: var(--black);
-            color: var(--white);
-            text-decoration: none;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 15px;
-            letter-spacing: 0.5px;
-            transition: opacity 0.2s;
-        }
-        .placeholder .cta-link:hover { opacity: 0.8; }
 
-        /* === FOOTER (Checkpoint 2) === */
+        /* === BOOK GRID === */
+        .book-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 48px 60px;
+        }
+        .book-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .book-item {
+            text-decoration: none;
+            color: var(--black);
+            display: block;
+        }
+        .book-item:hover .book-cover img {
+            transform: scale(1.02);
+        }
+        .book-label {
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .book-label span {
+            font-weight: 700;
+        }
+        .book-cover {
+            overflow: hidden;
+            line-height: 0;
+        }
+        .book-cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        /* === FOOTER === */
         .footer { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 40px; padding: 60px 48px; font-size: 14px; }
         .footer-col h4 { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
         .footer-col p, .footer-col a { color: var(--black); text-decoration: none; line-height: 1.8; display: block; }
@@ -72,16 +87,22 @@
         .footer-col-last { border-left: 1px solid var(--black); padding-left: 40px; }
         .footer-credit { font-size: 12px; color: var(--black); margin-top: 40px; }
 
+        /* === RESPONSIVE === */
         @media (max-width: 900px) {
             .nav { padding: 14px 24px; }
             .nav-links { display: none; }
             .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); }
             .hamburger { display: flex; }
-            .placeholder { padding: 60px 24px; }
+            .page-title { padding: 40px 24px 16px; }
+            .book-grid { padding: 0 24px 40px; }
+            .book-row { gap: 24px; margin-bottom: 40px; }
             .footer { grid-template-columns: 1fr 1fr; padding: 40px 24px; }
             .footer-col-last { border-left: none; padding-left: 0; border-top: 1px solid var(--black); padding-top: 24px; }
         }
-        @media (max-width: 560px) { .footer { grid-template-columns: 1fr; } }
+        @media (max-width: 560px) {
+            .book-row { grid-template-columns: 1fr; gap: 40px; }
+            .footer { grid-template-columns: 1fr; }
+        }
         @view-transition { navigation: auto; }
         ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
     </style>
@@ -102,11 +123,61 @@
         </ul>
     </nav>
 
-    <section class="placeholder">
+    <div class="page-title">
         <h1>B&oslash;ger.</h1>
-        <p>Emil Salzers b&oslash;ger og digtsamlinger er p&aring; vej. Hold &oslash;je med denne side for udgivelser og bestillingsmuligheder.</p>
-        <a href="poesi.html" class="cta-link">L&aelig;s digte i mellemtiden</a>
-    </section>
+    </div>
+
+    <div class="book-grid">
+
+        <!-- Row 1 -->
+        <div class="book-row">
+            <a href="#" class="book-item">
+                <p class="book-label"><span>2026</span> / Tre refleksioner</p>
+                <div class="book-cover">
+                    <img src="images/books/tre-refleksioner.jpg" alt="Tre refleksioner af Emil Salzer">
+                </div>
+            </a>
+            <a href="#" class="book-item">
+                <p class="book-label"><span>2025</span> / Kaosviol</p>
+                <div class="book-cover">
+                    <img src="images/books/kaosviol.jpg" alt="Kaosviol af Emil Salzer">
+                </div>
+            </a>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="book-row">
+            <a href="#" class="book-item">
+                <p class="book-label"><span>2025</span> / Syv taler</p>
+                <div class="book-cover">
+                    <img src="images/books/syv-taler.jpg" alt="Syv taler af Emil Salzer">
+                </div>
+            </a>
+            <a href="#" class="book-item">
+                <p class="book-label"><span>2024</span> / Sj&aelig;lecancer</p>
+                <div class="book-cover">
+                    <img src="images/books/sjaelecancer.jpg" alt="Sj&aelig;lecancer af Emil Salzer">
+                </div>
+            </a>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="book-row">
+            <a href="#" class="book-item">
+                <p class="book-label"><span>2023</span> / Bukkede nakker</p>
+                <div class="book-cover">
+                    <img src="images/books/bukkede-nakker.jpg" alt="Bukkede nakker af Emil Salzer">
+                </div>
+            </a>
+            <a href="#" class="book-item">
+                <p class="book-label"><span>2022</span> / Uvaccineret</p>
+                <div class="book-cover">
+                    <img src="images/books/uvaccineret.jpg" alt="Uvaccineret af Emil Salzer">
+                </div>
+            </a>
+        </div>
+
+    </div>
 
     <footer class="footer">
         <div class="footer-col">
@@ -132,5 +203,6 @@
             <a href="#">Instagram</a>
         </div>
     </footer>
+
 </body>
 </html>

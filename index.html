@@ -190,6 +190,14 @@
             height: 100%;
             object-fit: cover;
         }
+        .fullscreen-image.uncropped {
+            height: auto;
+            overflow: visible;
+        }
+        .fullscreen-image.uncropped img {
+            height: auto;
+            object-fit: none;
+        }
         .fullscreen-image.crop-bottom img {
             object-position: center 40%;
         }
@@ -383,7 +391,7 @@
             <p class="hero-quote">Poesien har altid v&aelig;ret den fattige mands sv&aelig;rd. Hvis vi erstatter det med et papsv&aelig;rd af korrekthedsfrygt, s&aring; st&aring;r kunstens kraft uden potens.</p>
             <p class="hero-quote-source">&ndash; interview, Kontrast</p>
             <div class="hero-buttons">
-                <a href="poesi.html" class="btn-primary">L&aelig;s digte</a>
+                <a href="boeger.html" class="btn-primary" style="font-weight:700;">Se b&oslash;ger</a>
                 <a href="foredrag.html" class="btn-secondary">Book foredrag</a>
             </div>
         </div>
@@ -398,7 +406,7 @@
     </div>
 
     <!-- FULLSCREEN EYE IMAGE (3.3) -->
-    <div class="fullscreen-image">
+    <div class="fullscreen-image uncropped">
         <img src="images/forside-2.jpg" alt="Emil Salzer, n&aelig;rbillede" loading="lazy">
     </div>
 
