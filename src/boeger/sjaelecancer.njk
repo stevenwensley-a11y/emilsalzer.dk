@@ -11,7 +11,7 @@ extraHead: |
   <style>
       .product-header {
           text-align: center;
-          padding: 60px 48px 40px;
+          padding: 20px 48px 40px;
       }
       .product-header h1 {
           font-size: clamp(48px, 6vw, 72px);
@@ -29,7 +29,9 @@ extraHead: |
       }
       .product-cover {
           width: 100%;
+          height: auto;
           display: block;
+          object-fit: contain;
       }
       .product-text {
           font-size: 16px;
@@ -51,7 +53,7 @@ extraHead: |
       }
       .back-link {
           display: inline-block;
-          margin: 40px 48px;
+          margin: 16px 48px;
           font-size: 14px;
           color: var(--grey);
           text-decoration: none;
@@ -60,7 +62,7 @@ extraHead: |
       .back-link:hover { color: var(--black); }
 
       @media (max-width: 768px) {
-          .product-header { padding: 40px 24px 24px; }
+          .product-header { padding: 16px 24px 24px; }
           .product-layout {
               grid-template-columns: 1fr;
               gap: 32px;
@@ -70,7 +72,7 @@ extraHead: |
               max-width: 400px;
               margin: 0 auto;
           }
-          .back-link { margin: 24px 24px; }
+          .back-link { margin: 12px 24px; }
       }
   </style>
 ---
