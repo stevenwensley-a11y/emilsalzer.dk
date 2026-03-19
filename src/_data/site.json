@@ -36,8 +36,8 @@
       { "label": "Kontakt", "url": "/kontakt/" }
     ],
     "social": [
-      { "label": "Facebook", "url": "https://www.facebook.com/emilsalzer" },
-      { "label": "Instagram", "url": "https://www.instagram.com/emilsalzer/" }
+      { "label": "Facebook", "url": "https://www.facebook.com/salzerpoetry/" },
+      { "label": "YouTube", "url": "https://www.youtube.com/@emilsalzer" }
     ]
   }
 }
