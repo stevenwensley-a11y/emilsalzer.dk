@@ -4,16 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Indholdsstyring — Emil Salzer</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    CMS.init({
-      config: {
-        locale: 'da'
-      }
+    CMS.registerLocale('da', {
+      app: {
+        header: { content: 'Indhold', media: 'Medier', workflow: 'Arbejdsgang' },
+        app: { errorHeader: 'Fejl', interOperability: 'Interoperabilitet', loading: 'Indlæser...' },
+      },
+      auth: { login: 'Log ind med GitHub' },
+      editor: {
+        editorControl: { dragAndDrop: 'Træk og slip', or: 'eller' },
+        editorToolbar: { publishing: 'Udgiver...', publish: 'Udgiv', published: 'Udgivet', unpublish: 'Afpublicer', duplicate: 'Duplikér', publishAndCreateNew: 'Udgiv og opret ny', deleteEntry: 'Slet indlæg' },
+      },
+      ui: {
+        toast: { onSave: 'Indlæg gemt', onPublish: 'Indlæg udgivet', onDelete: 'Indlæg slettet' },
+      },
     });
+    CMS.init({ config: { locale: 'da' } });
   </script>
 </body>
 </html>
