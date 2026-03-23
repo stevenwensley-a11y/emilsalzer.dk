@@ -11,7 +11,7 @@ extraHead: |
   <style>
       .product-header {
           text-align: center;
-          padding: 0 48px 40px;
+          padding: 48px 48px 40px;
       }
       .product-header h1 {
           font-size: clamp(48px, 6vw, 72px);
@@ -51,18 +51,9 @@ extraHead: |
       .product-text a:hover {
           opacity: 0.7;
       }
-      .back-link {
-          display: inline-block;
-          margin: 16px 48px;
-          font-size: 14px;
-          color: var(--grey);
-          text-decoration: none;
-          transition: color 0.2s;
-      }
-      .back-link:hover { color: var(--black); }
 
       @media (max-width: 768px) {
-          .product-header { padding: 0 24px 24px; }
+          .product-header { padding: 40px 24px 24px; }
           .product-layout {
               grid-template-columns: 1fr;
               gap: 32px;
@@ -72,12 +63,9 @@ extraHead: |
               max-width: 400px;
               margin: 0 auto;
           }
-          .back-link { margin: 12px 24px; }
       }
   </style>
 ---
-
-<a href="/boeger/" class="back-link">&larr; Alle bøger</a>
 
 <section class="product-header" data-reveal>
     <h1>Sjælecancer.</h1>
