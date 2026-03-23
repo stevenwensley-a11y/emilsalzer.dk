@@ -14,7 +14,6 @@ extraHead: |
       .split-hero {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          min-height: 85vh;
       }
       .split-hero-text {
           display: flex;
@@ -43,12 +42,11 @@ extraHead: |
       }
       .split-hero-image {
           position: relative;
-          overflow: hidden;
       }
       .split-hero-image img {
           width: 100%;
-          height: 100%;
-          object-fit: cover;
+          height: auto;
+          object-fit: contain;
       }
 
       /* === FULL-WIDTH IMAGES === */
@@ -64,13 +62,12 @@ extraHead: |
 
       /* === HERO IMAGE (fixed height, focus on subject) === */
       .full-image.hero-image {
-          height: 70vh;
-          overflow: hidden;
+          overflow: visible;
       }
       .full-image.hero-image img {
-          height: 100%;
-          object-fit: cover;
-          object-position: center 20%;
+          width: 100%;
+          height: auto;
+          object-fit: contain;
       }
 
       /* === BOOKING SECTION — full-width, centered content, box-shadow === */
@@ -194,7 +191,6 @@ extraHead: |
           }
           .split-hero-image {
               order: 2;
-              height: 50vh;
           }
           .booking-section { padding: 40px 24px; }
           .form-row { grid-template-columns: 1fr; }
