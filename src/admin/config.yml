@@ -6,10 +6,6 @@ backend:
   auth_endpoint: /auth
 
 publish_mode: simple
-media_folder: src/assets/images
-public_folder: /assets/images
-
-locale: da
 
 collections:
   - name: pages
