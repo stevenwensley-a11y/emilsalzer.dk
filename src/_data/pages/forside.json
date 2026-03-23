@@ -1,0 +1,30 @@
+{
+  "title": "Emil Salzer — Digter og filosof",
+  "description": "Emil Salzer er digter og filosof. Oplev hans poesi, filosofi og foredrag.",
+  "ogTitle": "Emil Salzer – Digter og filosof",
+  "ogDescription": "Emil Salzer er digter og filosof. Oplev hans poesi, filosofi og foredrag.",
+  "heroTagline": "Digte, filosofi, frihed siden 2020",
+  "heroQuote": "Poesien har altid været den fattige mands sværd. Hvis vi erstatter det med et papsværd af korrekthedsfrygt, så står kunstens kraft uden potens.",
+  "heroQuoteSource": "– interview, Kontrast",
+  "bannerText": "Som Berlingskes huspoet løfter Emil Salzer standarderne for poesiens udforming af kulturen.",
+  "section1h2": "Digte, der taler tidens toner",
+  "section1body": "I hvert digt går Salzer kompromisløst efter at afsløre tiden – nærmest som ville han flænse og dokumentere den på samme tid. Han er definerende for 20'ernes poesi og har efterhånden forfattet en lang række digte, som har antændt samfundsdebatter.",
+  "section1quote": "Når jeg skriver digte, så installerer jeg symboler, der bliver til et spejl for hvert lag af mening. Det er ikke sikkert, du kan lide, hvad du ser i spejlet, men du får en refleksion.",
+  "section1quoteSource": "– interview, BT og Sjællandske Nyheder",
+  "section1cta": "Dyk ned i en håndplukket serie af Emil Salzers skelsættende poesi her.",
+  "section2h2": "En evig kamp for frihed",
+  "section2intro": "I sine 'Syv taler' definerede Emil Salzer frihed som kærlighed til medmennesket:",
+  "section2quote": "Frihed kommer af tillid – forståelsen, at vi hver især skaber mest værdi for hinanden, når vi kan udleve eget potentiale. Sandhedens totale natur kan aldrig rummes af ét menneske, derfor har vi brug for hinanden til at lyse med syn de steder, vi ikke selv forstår. Vores fælles potentiale åbnes, når vi kan udleve vort eget.",
+  "section2body": "Salzers virke rummer en konceptuel sprogudvikling; Frisjæl, lyttemod, skamhumanisme og digisocio-sapiens – på samme tid bruger han sin stemme i debatten til at gøre op med eksisterende begrebers uhensigtsm\u00e6ssigheder.",
+  "poem": "Jeg husker denne slum\nmin verden der vil leve\njeg ser i denne grund\ntroen som m\u00e5 d\u00f8",
+  "sections": [
+    { "label": "Se bøger", "link": "/boeger/" },
+    { "label": "Læs poesi", "link": "/poesi/" },
+    { "label": "Filosofi", "link": "/filosofi/" }
+  ],
+  "social": {
+    "instagram": "https://www.instagram.com/emilsalzer/",
+    "facebook": "https://www.facebook.com/salzerpoetry/",
+    "youtube": "https://www.youtube.com/@emilsalzer"
+  }
+}

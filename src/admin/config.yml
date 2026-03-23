@@ -1,0 +1,119 @@
+backend:
+  name: github
+  repo: stevenwensley-a11y/emilsalzer.dk
+  branch: main
+  base_url: https://oauth.bygmedai.dk
+  auth_endpoint: /auth
+
+publish_mode: simple
+media_folder: src/assets/images
+public_folder: /assets/images
+
+locale: da
+
+collections:
+  - name: pages
+    label: Sider
+    files:
+
+      - name: forside
+        label: Forside
+        file: src/_data/pages/forside.json
+        fields:
+          - { name: title, label: "Side-titel (SEO)", widget: string }
+          - { name: description, label: "Meta-beskrivelse", widget: string }
+          - { name: ogTitle, label: "OG-titel", widget: string }
+          - { name: ogDescription, label: "OG-beskrivelse", widget: string }
+          - { name: heroTagline, label: "Hero tagline", widget: string }
+          - { name: heroQuote, label: "Hero citat", widget: text }
+          - { name: heroQuoteSource, label: "Hero citatskilde", widget: string }
+          - { name: bannerText, label: "Bannertekst", widget: text }
+          - { name: section1h2, label: "Sektion 1 overskrift", widget: string }
+          - { name: section1body, label: "Sektion 1 brødtekst", widget: text }
+          - { name: section1quote, label: "Sektion 1 citat", widget: text }
+          - { name: section1quoteSource, label: "Sektion 1 citatskilde", widget: string }
+          - { name: section1cta, label: "Sektion 1 CTA-tekst", widget: string }
+          - { name: section2h2, label: "Sektion 2 overskrift", widget: string }
+          - { name: section2intro, label: "Sektion 2 intro", widget: text }
+          - { name: section2quote, label: "Sektion 2 citat", widget: text }
+          - { name: section2body, label: "Sektion 2 brødtekst", widget: text }
+          - { name: poem, label: "Digt (brug \\n til linjeskift)", widget: text }
+
+      - name: kontakt
+        label: Kontakt
+        file: src/_data/pages/kontakt.json
+        fields:
+          - { name: title, label: "Side-titel (SEO)", widget: string }
+          - { name: description, label: "Meta-beskrivelse", widget: string }
+          - { name: ogTitle, label: "OG-titel", widget: string }
+          - { name: ogDescription, label: "OG-beskrivelse", widget: string }
+          - { name: formHeading, label: "Formularoverskrift", widget: string }
+          - { name: formSubtext, label: "Formular undertekst", widget: text }
+          - { name: formEmail, label: "Formspree ID", widget: string }
+          - { name: successMessage, label: "Succesbesked", widget: text }
+
+      - name: boeger
+        label: Bøger
+        file: src/_data/pages/boeger.json
+        fields:
+          - { name: title, label: "Side-titel (SEO)", widget: string }
+          - { name: description, label: "Meta-beskrivelse", widget: string }
+          - { name: ogTitle, label: "OG-titel", widget: string }
+          - { name: ogDescription, label: "OG-beskrivelse", widget: string }
+          - { name: heading, label: "Overskrift", widget: string }
+          - name: books
+            label: Bøger
+            widget: list
+            fields:
+              - { name: year, label: "År", widget: string }
+              - { name: title, label: "Titel", widget: string }
+              - { name: image, label: "Billedsti", widget: string }
+              - { name: link, label: "Link", widget: string }
+              - { name: alt, label: "Alt-tekst", widget: string }
+
+      - name: filosofi
+        label: Filosofi
+        file: src/_data/pages/filosofi.json
+        fields:
+          - { name: title, label: "Side-titel (SEO)", widget: string }
+          - { name: description, label: "Meta-beskrivelse", widget: string }
+          - { name: ogTitle, label: "OG-titel", widget: string }
+          - { name: ogDescription, label: "OG-beskrivelse", widget: string }
+          - { name: heading, label: "Overskrift", widget: string }
+          - { name: body, label: "Indhold (HTML)", widget: markdown }
+
+      - name: poesi
+        label: Poesi
+        file: src/_data/pages/poesi.json
+        fields:
+          - { name: title, label: "Side-titel (SEO)", widget: string }
+          - { name: description, label: "Meta-beskrivelse", widget: string }
+          - { name: ogTitle, label: "OG-titel", widget: string }
+          - { name: ogDescription, label: "OG-beskrivelse", widget: string }
+          - { name: heading, label: "Overskrift", widget: string }
+          - { name: intro, label: "Intro-tekst", widget: text }
+          - { name: introCta, label: "Intro CTA", widget: string }
+          - { name: body, label: "Digte (HTML)", widget: markdown }
+
+      - name: foredrag
+        label: Foredrag
+        file: src/_data/pages/foredrag.json
+        fields:
+          - { name: title, label: "Side-titel (SEO)", widget: string }
+          - { name: description, label: "Meta-beskrivelse", widget: string }
+          - { name: ogTitle, label: "OG-titel", widget: string }
+          - { name: ogDescription, label: "OG-beskrivelse", widget: string }
+          - { name: heading, label: "Overskrift", widget: text }
+          - { name: intro1, label: "Intro 1", widget: text }
+          - { name: btQuote, label: "BT-citat", widget: string }
+          - { name: intro2, label: "Intro 2", widget: text }
+          - { name: intro3, label: "Intro 3", widget: text }
+          - { name: bookingHeading, label: "Bookingsoverskrift", widget: string }
+          - { name: formspreeId, label: "Formspree ID", widget: string }
+          - { name: successMessage, label: "Succesbesked", widget: text }
+          - name: reviews
+            label: Anmeldelser
+            widget: list
+            fields:
+              - { name: quote, label: "Citat", widget: text }
+              - { name: attribution, label: "Ophavsmand", widget: string }

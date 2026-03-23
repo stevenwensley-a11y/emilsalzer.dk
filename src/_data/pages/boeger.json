@@ -1,0 +1,51 @@
+{
+  "title": "Bøger — Emil Salzer",
+  "description": "Emil Salzers bøger og digtsamlinger. Kaosviol, Syv taler, Sjælecancer, Bukkede nakker og Uvaccineret.",
+  "ogTitle": "Bøger — Emil Salzer",
+  "ogDescription": "Emil Salzers bøger og digtsamlinger.",
+  "heading": "Bøger.",
+  "books": [
+    {
+      "year": "2026",
+      "title": "Tre refleksioner",
+      "image": "/assets/images/boeger/tre-refleksioner.jpg",
+      "link": "/boeger/kaosviol/",
+      "alt": "Tre refleksioner — digtsamling af Emil Salzer"
+    },
+    {
+      "year": "2025",
+      "title": "Kaosviol",
+      "image": "/assets/images/boeger/kaosviol.jpg",
+      "link": "/boeger/kaosviol/",
+      "alt": "Kaosviol — digtsamling af Emil Salzer"
+    },
+    {
+      "year": "2025",
+      "title": "Syv taler",
+      "image": "/assets/images/boeger/syv-taler.jpg",
+      "link": "/boeger/syv-taler/",
+      "alt": "Syv taler af Emil Salzer"
+    },
+    {
+      "year": "2024",
+      "title": "Sjælecancer",
+      "image": "/assets/images/boeger/sjaelecancer.jpg",
+      "link": "/boeger/sjaelecancer/",
+      "alt": "Sjælecancer — digtsamling af Emil Salzer"
+    },
+    {
+      "year": "2023",
+      "title": "Bukkede nakker",
+      "image": "/assets/images/boeger/bukkede-nakker.jpg",
+      "link": "/boeger/bukkede-nakker/",
+      "alt": "Bukkede nakker — digtsamling af Emil Salzer"
+    },
+    {
+      "year": "2022",
+      "title": "Uvaccineret",
+      "image": "/assets/images/boeger/uvaccineret.jpg",
+      "link": "/boeger/uvaccineret/",
+      "alt": "Uvaccineret — digtsamling af Emil Salzer"
+    }
+  ]
+}
