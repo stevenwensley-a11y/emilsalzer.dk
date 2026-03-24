@@ -46,3 +46,10 @@ https://unpkg.com
 
 # OAuth worker (internal — requires auth)
 https://oauth.bygmedai.dk
+
+# YouTube embeds (often blocked in CI environments)
+https://www.youtube.com
+https://youtube.com
+
+# Nunjucks template URLs ({{ variable }} — not real URLs)
+\{\{
