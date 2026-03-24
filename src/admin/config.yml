@@ -3,9 +3,11 @@ backend:
   repo: stevenwensley-a11y/emilsalzer.dk
   branch: main
   base_url: https://oauth.bygmedai.dk
-  auth_endpoint: /auth
 
 publish_mode: simple
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
 
 collections:
   - name: pages
