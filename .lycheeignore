@@ -28,3 +28,21 @@ https://www.facebook.com
 
 # Calendly (requires auth)
 https://calendly.com
+
+# Old repo URL (transferred — GitHub redirects but lychee may not follow)
+https://github.com/stevenwensley-a11y
+
+# GitHub status page (HTTP varies by region)
+https://githubstatus.com
+
+# File hosting (requires cookies/auth for some files)
+https://www.mediafire.com
+
+# Google services (require auth)
+https://analytics.google.com
+
+# CDN scripts (checked at runtime, not link-check time)
+https://unpkg.com
+
+# OAuth worker (internal — requires auth)
+https://oauth.bygmedai.dk
