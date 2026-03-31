@@ -115,3 +115,16 @@ collections:
             fields:
               - { name: quote, label: "Citat", widget: text }
               - { name: attribution, label: "Ophavsmand", widget: string }
+
+  - name: "poesi_digte"
+    label: "Digte"
+    folder: "src/poesi"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "År", name: "year", widget: "number", value_type: "int" }
+      - { label: "Dato", name: "date", widget: "datetime" }
+      - { label: "Note (valgfri)", name: "note", widget: "string", required: false }
+      - { label: "Rækkefølge", name: "order", widget: "number", value_type: "int", default: 99 }
+      - { label: "Digt", name: "body", widget: "markdown" }

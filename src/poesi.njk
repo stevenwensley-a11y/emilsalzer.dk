@@ -89,6 +89,19 @@ extraHead: |
     <p>{{ pages.poesi.introCta }}</p>
 </div>
 
+{% for poem in collections.poesi | reverse %}
 <div class="poem-section" data-reveal>
-    {{ pages.poesi.body | safe }}
+    <div class="poem-year">{{ poem.data.year }}</div>
+    <div class="poem-year-line"></div>
+    <h2 class="poem-title">{{ poem.data.title }}</h2>
+    <div class="poem-body">
+        {{ poem.templateContent | safe }}
+    </div>
+    {% if poem.data.note %}
+    <p class="poem-note">{{ poem.data.note }}</p>
+    {% endif %}
 </div>
+{% if not loop.last %}
+<div class="poem-divider"></div>
+{% endif %}
+{% endfor %}
